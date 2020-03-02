@@ -1,11 +1,12 @@
 import React from 'react';
-import './App.css';
+import {Route, Switch} from "react-router-dom";
+import ShortenLinkPage from "./containers/ShortenLinkPage";
 
 function App() {
   return (
-    <div className="App">
-
-    </div>
+    <Switch>
+      <Route path='/' exact component={ShortenLinkPage}/>
+    </Switch>
   );
 }
 

@@ -17,11 +17,11 @@ class ShortenLinkPage extends Component {
     submitHandler = e => {
         e.preventDefault();
 
-        this.props.shortenLink(this.state.originalUrl);
+        this.props.shortenLink(this.state);
     };
 
     renderLink = () => (
-        <div>
+        <div className="text-center">
             <h3>Your link now looks like this:</h3>
             <a href={`${apiURL}/${this.props.shortUrl}`}>{`${apiURL}/${this.props.shortUrl}`}</a>
         </div>

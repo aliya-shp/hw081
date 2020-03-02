@@ -8,13 +8,13 @@ export const shortenLinkRequest = () => ({type: SHORTEN_LINK_REQUEST});
 export const shortenLinkSuccess = shortUrl => ({type: SHORTEN_LINK_SUCCESS, shortUrl});
 export const shortenLinkFailure = error => ({type: SHORTEN_LINK_FAILURE, error});
 
-export const shortenLink = shortUrl => {
+export const shortenLink = link => {
     return async dispatch => {
         dispatch(shortenLinkRequest());
 
         try {
-            const response = await axiosApi.post('/links', shortUrl);
-            dispatch(shortenLinkSuccess(response.data));
+            const response = await axiosApi.post('/links', link);
+            dispatch(shortenLinkSuccess(response.data.shortUrl));
         } catch (error) {
             dispatch(shortenLinkFailure(error));
         }

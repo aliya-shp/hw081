@@ -14,7 +14,7 @@ app.use(express.static('public'));
 const run = async () => {
     await mongoose.connect('mongodb://localhost/links', {
         useNewUrlParser: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
     });
 
     app.use('/links', links);

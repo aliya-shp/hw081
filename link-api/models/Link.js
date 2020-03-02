@@ -15,6 +15,8 @@ const LinkSchema = new Schema({
     versionKey: false,
 });
 
+LinkSchema.index({shortUrl: 1}, {unique: true});
+
 const Link = mongoose.model('Link', LinkSchema);
 
 module.exports = Link;

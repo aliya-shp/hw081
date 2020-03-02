@@ -25,13 +25,13 @@ router.post('/', async (req, res) => {
 router.get('/:shortUrl', async (req, res) => {
     const shortUrl = req.params.shortUrl;
     try {
-        const item = await Link.findOne({shortUrl});
+        const url = await Link.findOne({shortUrl});
 
-        if (!item) {
+        if (!url) {
             return res.status(404).send({message: 'Not found'});
         }
 
-        return res.send(item);
+        res.status(301).redirect(url.originalUrl);
     } catch (e) {
         return res.status(404).send({message: 'Not found'});
     }
